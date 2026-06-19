@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.tide.app-debug-45:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.tide.app-main-47:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/xml_backup_rules.xml.flat",
+        "source": "com.tide.app-main-47:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/font_inter.ttf.flat",
+        "source": "com.tide.app-main-47:/font/inter.ttf"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.tide.app-main-47:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/drawable_ic_launcher_monochrome.xml.flat",
+        "source": "com.tide.app-main-47:/drawable/ic_launcher_monochrome.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/drawable_ic_splash_logo.xml.flat",
+        "source": "com.tide.app-main-47:/drawable/ic_splash_logo.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/xml_data_extraction_rules.xml.flat",
+        "source": "com.tide.app-main-47:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/drawable_ic_stat_tide.xml.flat",
+        "source": "com.tide.app-main-47:/drawable/ic_stat_tide.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.tide.app-main-47:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.tide.app-main-47:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/xml_accessibility_service_config.xml.flat",
+        "source": "com.tide.app-main-47:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "com.tide.app-debug-45:/font_space_grotesk.ttf.flat",
+        "source": "com.tide.app-main-47:/font/space_grotesk.ttf"
+    }
+]

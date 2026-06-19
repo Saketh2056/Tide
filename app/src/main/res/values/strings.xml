@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tide</string>
+    <string name="accessibility_service_label">Tide Guardian</string>
+    <string name="accessibility_service_description">Tide uses this service to know which app is on screen so it can gently pause distracting apps when a shield, schedule, or focus session is active. Tide never reads your screen content, collects data, or sends anything off your device.</string>
+</resources>

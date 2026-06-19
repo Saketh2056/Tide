@@ -1,0 +1,22 @@
+R_DEF: Internal format may change without notice
+local
+color ink
+color mint
+color violet
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_launcher_monochrome
+drawable ic_splash_logo
+drawable ic_stat_tide
+font inter
+font space_grotesk
+mipmap ic_launcher
+mipmap ic_launcher_round
+string accessibility_service_description
+string accessibility_service_label
+string app_name
+style Theme.Tide
+style Theme.Tide.Starting
+xml accessibility_service_config
+xml backup_rules
+xml data_extraction_rules
