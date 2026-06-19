@@ -130,23 +130,4 @@ once it's done.
 
 ---
 
-## For developers
-
-Tide is built with **Kotlin** and **Jetpack Compose** (Android's modern UI toolkit), using
-Material 3 design. It stores data locally with Room and DataStore, and the blocking logic is
-covered by unit tests.
-
-To build it yourself, from the `Tide/` folder:
-
-```bash
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
-
-./gradlew :app:assembleRelease       # build the installable app
-./gradlew :app:testDebugUnitTest     # run the tests
-```
-
-The finished app appears at `app/build/outputs/apk/release/Tide-release-1.0.0.apk`.
-
----
-
 *Tide — a calmer relationship with your phone.*
