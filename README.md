@@ -118,7 +118,7 @@ once it's done.
 
 ## How to install it
 
-1. Copy the file **`Tide-1.0.0.apk`** to your Android phone.
+1. Copy the file **`Tide-1.1.0.apk`** to your Android phone.
 2. Tap it to install. If your phone warns you, choose **"allow from this source"** — this is
    normal for apps installed outside the Play Store.
 3. Open Tide and follow the short welcome tour to grant the two permissions.
