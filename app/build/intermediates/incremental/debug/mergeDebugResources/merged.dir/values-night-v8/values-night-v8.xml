@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="light_system_bars">false</bool>
+    <color name="splash_bg">#15120E</color>
+    <color name="window_bg">#15120E</color>
     <style name="Base.Theme.SplashScreen.DayNight" parent="Base.Theme.SplashScreen"/>
 </resources>

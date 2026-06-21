@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tide.app.BlockEvaluatorTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-06-19T19:01:39.047Z" hostname="MacBook-Pro-Alpha.local" time="0.01">
+<testsuite name="com.tide.app.BlockEvaluatorTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-06-21T18:53:50.738Z" hostname="MacBook-Pro-Alpha.local" time="0.011">
   <properties/>
   <testcase name="allows app with no rules" classname="com.tide.app.BlockEvaluatorTest" time="0.006"/>
-  <testcase name="focus session has priority over shield grace" classname="com.tide.app.BlockEvaluatorTest" time="0.001"/>
-  <testcase name="limit shield allows under budget and blocks over it" classname="com.tide.app.BlockEvaluatorTest" time="0.001"/>
+  <testcase name="focus session has priority over shield grace" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>
+  <testcase name="limit shield allows under budget and blocks over it" classname="com.tide.app.BlockEvaluatorTest" time="0.002"/>
   <testcase name="grace remaining counts only today's uses" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>
   <testcase name="focus session blocks listed apps only" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>
   <testcase name="disabled shield does not block" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>
-  <testcase name="grace extension temporarily allows a limited app" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>
+  <testcase name="grace extension temporarily allows a limited app" classname="com.tide.app.BlockEvaluatorTest" time="0.001"/>
   <testcase name="overnight schedule blocks after midnight using previous day's bit" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>
   <testcase name="window helper handles edge minutes" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>
   <testcase name="schedule blocks inside window on active day" classname="com.tide.app.BlockEvaluatorTest" time="0.0"/>

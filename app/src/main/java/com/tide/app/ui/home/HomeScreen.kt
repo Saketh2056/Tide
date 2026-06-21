@@ -1,6 +1,7 @@
 package com.tide.app.ui.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,9 +21,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.PlayArrow
-import androidx.compose.material.icons.rounded.WarningAmber
+import androidx.compose.material.icons.rounded.ArrowOutward
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -47,16 +46,17 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tide.app.appContainer
 import com.tide.app.service.GuardianService
 import com.tide.app.ui.components.AppIcon
-import com.tide.app.ui.components.GlassCard
+import com.tide.app.ui.components.GhostButton
 import com.tide.app.ui.components.HourlyRhythm
-import com.tide.app.ui.components.ProgressRing
+import com.tide.app.ui.components.PrimaryButton
 import com.tide.app.ui.components.SectionHeader
 import com.tide.app.ui.components.StatTile
 import com.tide.app.ui.components.TickerText
+import com.tide.app.ui.components.TideCard
+import com.tide.app.ui.components.TideDivider
+import com.tide.app.ui.components.TideGauge
 import com.tide.app.ui.components.UsageBar
-import com.tide.app.ui.theme.Ember
-import com.tide.app.ui.theme.Mint
-import com.tide.app.ui.theme.Violet
+import com.tide.app.ui.theme.tide
 import com.tide.app.util.Permissions
 import com.tide.app.util.Time
 import java.time.LocalDate
@@ -96,19 +96,14 @@ fun HomeScreen(
     LazyColumn(
         modifier = Modifier.fillMaxSize().statusBarsPadding(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(
-            start = 20.dp, end = 20.dp, top = 10.dp, bottom = 120.dp
+            start = 20.dp, end = 20.dp, top = 12.dp, bottom = 124.dp
         ),
         verticalArrangement = Arrangement.spacedBy(14.dp)
     ) {
         item { Header(onOpenSettings) }
 
         if (!usageGranted || !guardianOn) {
-            item {
-                SetupBanner(
-                    usageGranted = usageGranted,
-                    guardianOn = guardianOn
-                )
-            }
+            item { SetupBanner(usageGranted = usageGranted, guardianOn = guardianOn) }
         }
 
         item {
@@ -121,63 +116,29 @@ fun HomeScreen(
         }
 
         item {
+            val c = MaterialTheme.tide
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                StatTile(
-                    value = "${state.screenWakes}",
-                    label = "pickups",
-                    accent = Ember,
-                    modifier = Modifier.weight(1f)
-                )
-                StatTile(
-                    value = Time.formatDuration(focusedToday),
-                    label = "focused",
-                    accent = Mint,
-                    modifier = Modifier.weight(1f)
-                )
-                StatTile(
-                    value = "$shieldCount",
-                    label = "shields up",
-                    accent = Violet,
-                    modifier = Modifier.weight(1f)
-                )
+                StatTile("${state.screenWakes}", "pickups", accent = c.amber, modifier = Modifier.weight(1f))
+                StatTile(Time.formatDuration(focusedToday), "focused", accent = c.sea, modifier = Modifier.weight(1f))
+                StatTile("$shieldCount", "shields up", accent = c.clay, modifier = Modifier.weight(1f))
             }
         }
 
         item {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                QuickAction(
-                    label = "Start focus",
-                    icon = { Icon(Icons.Rounded.PlayArrow, null, tint = MaterialTheme.colorScheme.onPrimary) },
-                    container = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.weight(1f),
-                    onClick = onStartFocus
-                )
-                QuickAction(
-                    label = "New shield",
-                    icon = { Icon(Icons.Rounded.Add, null, tint = MaterialTheme.colorScheme.onSurface) },
-                    container = MaterialTheme.colorScheme.surfaceContainerHigh,
-                    modifier = Modifier.weight(1f),
-                    onClick = onAddShield
-                )
+                PrimaryButton("Start focus", modifier = Modifier.weight(1f), onClick = onStartFocus)
+                GhostButton("New shield", modifier = Modifier.weight(1f), onClick = onAddShield)
             }
         }
 
         if (state.topApps.isNotEmpty()) {
             item { SectionHeader("Where today went") }
             item {
-                GlassCard(modifier = Modifier.fillMaxWidth()) {
+                TideCard(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(vertical = 6.dp)) {
                         state.topApps.forEachIndexed { i, app ->
                             TopAppRow(app)
-                            if (i != state.topApps.lastIndex) {
-                                Box(
-                                    Modifier
-                                        .padding(horizontal = 18.dp)
-                                        .fillMaxWidth()
-                                        .height(1.dp)
-                                        .background(MaterialTheme.colorScheme.outline.copy(alpha = 0.35f))
-                                )
-                            }
+                            if (i != state.topApps.lastIndex) TideDivider()
                         }
                     }
                 }
@@ -187,11 +148,8 @@ fun HomeScreen(
         if (state.hourly.any { it > 0 }) {
             item { SectionHeader("Today's rhythm") }
             item {
-                GlassCard(modifier = Modifier.fillMaxWidth()) {
-                    HourlyRhythm(
-                        hourly = state.hourly,
-                        modifier = Modifier.padding(18.dp)
-                    )
+                TideCard(modifier = Modifier.fillMaxWidth()) {
+                    HourlyRhythm(hourly = state.hourly, modifier = Modifier.padding(20.dp))
                 }
             }
         }
@@ -200,6 +158,7 @@ fun HomeScreen(
 
 @Composable
 private fun Header(onOpenSettings: () -> Unit) {
+    val c = MaterialTheme.tide
     val greeting = when (LocalTime.now().hour) {
         in 5..11 -> "Good morning"
         in 12..16 -> "Good afternoon"
@@ -207,129 +166,111 @@ private fun Header(onOpenSettings: () -> Unit) {
         else -> "Late hours"
     }
     Row(
-        Modifier.fillMaxWidth().padding(top = 6.dp),
+        Modifier.fillMaxWidth().padding(top = 6.dp, bottom = 4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(Modifier.weight(1f)) {
+            Text(greeting, style = MaterialTheme.typography.headlineMedium, color = c.ink)
             Text(
-                greeting,
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onBackground
-            )
-            Text(
-                LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE, MMM d", Locale.US)),
+                LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE, MMMM d", Locale.US)),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = c.inkMuted,
+                modifier = Modifier.padding(top = 2.dp)
             )
         }
-        IconButton(onClick = onOpenSettings) {
-            Icon(
-                Icons.Outlined.Settings,
-                contentDescription = "Settings",
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+        Box(
+            Modifier.size(42.dp).clip(CircleShape).background(c.surface)
+                .border(1.dp, c.hairline, CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            IconButton(onClick = onOpenSettings) {
+                Icon(Icons.Outlined.Settings, "Settings", tint = c.inkMuted, modifier = Modifier.size(21.dp))
+            }
         }
     }
 }
 
 @Composable
 private fun SetupBanner(usageGranted: Boolean, guardianOn: Boolean) {
+    val c = MaterialTheme.tide
     val context = LocalContext.current
     val missing = buildList {
         if (!usageGranted) add("usage access")
         if (!guardianOn) add("the Guardian service")
     }.joinToString(" and ")
-    GlassCard(
+    TideCard(
         modifier = Modifier.fillMaxWidth(),
-        corner = 22.dp,
+        corner = 20.dp,
         onClick = {
-            if (!usageGranted) {
-                runCatching { context.startActivity(Permissions.usageAccessIntent(context)) }
-            } else {
-                context.startActivity(Permissions.accessibilityIntent())
-            }
+            if (!usageGranted) runCatching { context.startActivity(Permissions.usageAccessIntent(context)) }
+            else context.startActivity(Permissions.accessibilityIntent())
         }
     ) {
         Row(Modifier.padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
-            Icon(Icons.Rounded.WarningAmber, null, tint = Ember)
+            Box(
+                Modifier.size(40.dp).clip(RoundedCornerShape(12.dp)).background(c.clay.copy(alpha = 0.12f)),
+                contentAlignment = Alignment.Center
+            ) { Text("◑", style = MaterialTheme.typography.titleLarge, color = c.clayText) }
             Spacer(Modifier.width(14.dp))
             Column(Modifier.weight(1f)) {
+                Text("Finish setting up", style = MaterialTheme.typography.titleMedium, color = c.ink)
                 Text(
-                    "Finish setting up",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Text(
-                    "Enable $missing so Tide can protect your time. Tap to open settings.",
+                    "Enable $missing so Tide can protect your time.",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = c.inkMuted,
                     modifier = Modifier.padding(top = 2.dp)
                 )
             }
+            Icon(Icons.Rounded.ArrowOutward, null, tint = c.inkFaint, modifier = Modifier.size(18.dp))
         }
     }
 }
 
 @Composable
-private fun HeroCard(
-    totalMillis: Long,
-    goalMinutes: Int,
-    deltaMillis: Long?,
-    hasData: Boolean
-) {
-    GlassCard(modifier = Modifier.fillMaxWidth(), corner = 30.dp) {
+private fun HeroCard(totalMillis: Long, goalMinutes: Int, deltaMillis: Long?, hasData: Boolean) {
+    val c = MaterialTheme.tide
+    TideCard(modifier = Modifier.fillMaxWidth(), corner = 26.dp) {
         Column(
-            Modifier.fillMaxWidth().padding(vertical = 26.dp, horizontal = 20.dp),
+            Modifier.fillMaxWidth().padding(vertical = 30.dp, horizontal = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             val goalMillis = goalMinutes * 60_000L
-            ProgressRing(
-                progress = if (goalMillis > 0) totalMillis.toFloat() / goalMillis else 0f,
-                modifier = Modifier.fillMaxWidth(0.62f).aspectRatio(1f)
-            ) {
+            val progress = if (goalMillis > 0) totalMillis.toFloat() / goalMillis else 0f
+            TideGauge(progress = progress, modifier = Modifier.fillMaxWidth(0.58f).aspectRatio(1f)) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     if (hasData) {
-                        TickerText(
-                            text = Time.formatDuration(totalMillis),
-                            style = MaterialTheme.typography.displaySmall
-                        )
+                        TickerText(text = Time.formatDuration(totalMillis), style = MaterialTheme.typography.displaySmall)
                         Text(
                             "of ${formatGoal(goalMinutes)} today",
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(top = 4.dp)
+                            color = c.inkMuted,
+                            modifier = Modifier.padding(top = 6.dp)
                         )
                     } else {
-                        Text(
-                            "—",
-                            style = MaterialTheme.typography.displaySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+                        Text("—", style = MaterialTheme.typography.displaySmall, color = c.inkFaint)
                         Text(
                             "waiting for access",
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            color = c.inkMuted,
                             textAlign = TextAlign.Center
                         )
                     }
                 }
             }
             if (deltaMillis != null && hasData) {
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(20.dp))
                 val less = deltaMillis <= 0
+                val tint = if (less) c.sea else c.amber
+                val tintText = if (less) c.seaText else c.amberText
                 Box(
-                    Modifier
-                        .clip(CircleShape)
-                        .background(
-                            (if (less) Mint else Ember).copy(alpha = 0.13f)
-                        )
-                        .padding(horizontal = 14.dp, vertical = 7.dp)
+                    Modifier.clip(CircleShape).background(tint.copy(alpha = 0.12f))
+                        .padding(horizontal = 14.dp, vertical = 8.dp)
                 ) {
                     Text(
-                        if (less) "▼ ${Time.formatDuration(-deltaMillis)} less than yesterday"
-                        else "▲ ${Time.formatDuration(deltaMillis)} more than yesterday",
+                        if (less) "↓ ${Time.formatDuration(-deltaMillis)} less than yesterday"
+                        else "↑ ${Time.formatDuration(deltaMillis)} more than yesterday",
                         style = MaterialTheme.typography.labelMedium,
-                        color = if (less) Mint else Ember
+                        color = tintText
                     )
                 }
             }
@@ -348,56 +289,20 @@ private fun formatGoal(minutes: Int): String {
 }
 
 @Composable
-private fun QuickAction(
-    label: String,
-    icon: @Composable () -> Unit,
-    container: androidx.compose.ui.graphics.Color,
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit
-) {
-    Row(
-        modifier
-            .clip(RoundedCornerShape(20.dp))
-            .background(container)
-            .clickable(onClick = onClick)
-            .padding(vertical = 16.dp),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        icon()
-        Spacer(Modifier.width(8.dp))
-        Text(
-            label,
-            style = MaterialTheme.typography.labelLarge,
-            color = if (container == MaterialTheme.colorScheme.primary)
-                MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface
-        )
-    }
-}
-
-@Composable
 private fun TopAppRow(app: AppUsageRow) {
+    val c = MaterialTheme.tide
     Row(
-        Modifier.fillMaxWidth().padding(horizontal = 18.dp, vertical = 12.dp),
+        Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 13.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         AppIcon(app.packageName, app.label, size = 42.dp)
         Spacer(Modifier.width(14.dp))
         Column(Modifier.weight(1f)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    app.label,
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.weight(1f)
-                )
-                Text(
-                    Time.formatDuration(app.usageMillis),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                Text(app.label, style = MaterialTheme.typography.titleSmall, color = c.ink, modifier = Modifier.weight(1f))
+                Text(Time.formatDuration(app.usageMillis), style = MaterialTheme.typography.labelLarge, color = c.inkMuted)
             }
-            Spacer(Modifier.height(7.dp))
+            Spacer(Modifier.height(8.dp))
             UsageBar(fraction = app.fraction)
         }
     }

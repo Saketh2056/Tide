@@ -9,15 +9,15 @@
     <attr format="integer" name="windowSplashScreenAnimationDuration"/>
     <attr format="color" name="windowSplashScreenBackground"/>
     <attr format="color" name="windowSplashScreenIconBackgroundColor"/>
+    <bool name="light_system_bars">true</bool>
     <color name="androidx_core_ripple_material_light">#1f000000</color>
     <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
     <color name="call_notification_answer_color">#1d873b</color>
     <color name="call_notification_decline_color">#d93025</color>
-    <color name="ink">#0A0D14</color>
-    <color name="mint">#5EEAD4</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
-    <color name="violet">#8B7CF6</color>
+    <color name="splash_bg">#FBFAF7</color>
+    <color name="window_bg">#FBFAF7</color>
     <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
     <dimen name="compat_button_inset_vertical_material">6dp</dimen>
     <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
@@ -282,13 +282,13 @@
         <item name="splashScreenIconSize">@dimen/splashscreen_icon_size_with_background</item>
     </style>
     <style name="Theme.Tide" parent="android:Theme.Material.NoActionBar">
-        <item name="android:windowBackground">@color/ink</item>
+        <item name="android:windowBackground">@color/window_bg</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">@bool/light_system_bars</item>
     </style>
     <style name="Theme.Tide.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/ink</item>
+        <item name="windowSplashScreenBackground">@color/splash_bg</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
         <item name="windowSplashScreenAnimationDuration">450</item>
         <item name="postSplashScreenTheme">@style/Theme.Tide</item>

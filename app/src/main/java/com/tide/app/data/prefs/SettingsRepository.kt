@@ -28,7 +28,7 @@ data class FocusState(
 
 data class TideSettings(
     val onboardingDone: Boolean = false,
-    val themeMode: ThemeMode = ThemeMode.DARK,
+    val themeMode: ThemeMode = ThemeMode.SYSTEM,
     val dailyGoalMinutes: Int = 240,
     val focusBlocklist: Set<String> = emptySet(),
     val focus: FocusState = FocusState(),
@@ -65,7 +65,7 @@ class SettingsRepository(private val context: Context) {
             TideSettings(
                 onboardingDone = prefs[Keys.onboardingDone] ?: false,
                 themeMode = prefs[Keys.themeMode]?.let { runCatching { ThemeMode.valueOf(it) }.getOrNull() }
-                    ?: ThemeMode.DARK,
+                    ?: ThemeMode.SYSTEM,
                 dailyGoalMinutes = prefs[Keys.dailyGoalMinutes] ?: 240,
                 focusBlocklist = prefs[Keys.focusBlocklist] ?: emptySet(),
                 focus = FocusState(

@@ -1,8 +1,8 @@
 R_DEF: Internal format may change without notice
 local
-color ink
-color mint
-color violet
+bool light_system_bars
+color splash_bg
+color window_bg
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_launcher_monochrome

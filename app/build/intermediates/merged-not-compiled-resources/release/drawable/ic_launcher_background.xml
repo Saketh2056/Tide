@@ -10,11 +10,11 @@
             <gradient
                 android:type="radial"
                 android:centerX="54"
-                android:centerY="44"
-                android:gradientRadius="78">
-                <item android:offset="0.0" android:color="#FF1A2036" />
-                <item android:offset="0.55" android:color="#FF10141F" />
-                <item android:offset="1.0" android:color="#FF0A0D14" />
+                android:centerY="46"
+                android:gradientRadius="80">
+                <item android:offset="0.0" android:color="#FFFFFCF7" />
+                <item android:offset="0.6" android:color="#FFF6F2EA" />
+                <item android:offset="1.0" android:color="#FFEFEADF" />
             </gradient>
         </aapt:attr>
     </path>

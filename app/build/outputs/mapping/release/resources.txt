@@ -1,104 +1,104 @@
 Marking attr:alpha:2130771969 reachable: referenced from in_memory_r8_base_classes0.dex
 Marking attr:lStar:2130771989 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:wrapped_composition_tag:2131099741 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_pm:2131361865 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_am:2131361854 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_dialog:2131361847 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:androidx_startup:2131361794 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_on_apply_window_listener:2131099722 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_window_insets_animation_callback:2131099731 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking drawable:ic_stat_tide:2130968591 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:autofill:2131361796 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:view_tree_on_back_pressed_dispatcher_owner:2131099738 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:view_tree_saved_state_registry_owner:2131099739 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking font:space_grotesk:2131034113 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking font:inter:2131034112 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:wrapped_composition_tag:2131165277 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_bottom_sheet_pane_title:2131427351 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:close_sheet:2131427341 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_pm:2131427401 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_am:2131427390 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_dialog:2131427383 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:androidx_startup:2131427330 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_on_apply_window_listener:2131165258 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_window_insets_animation_callback:2131165267 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking drawable:ic_stat_tide:2131034125 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:default_error_message:2131427342 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_bottom_sheet_collapse_description:2131427347 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_bottom_sheet_dismiss_description:2131427348 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_bottom_sheet_expand_description:2131427350 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:autofill:2131427332 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_on_back_pressed_dispatcher_owner:2131165274 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_saved_state_registry_owner:2131165275 reachable: referenced from in_memory_r8_base_classes0.dex
 Marking attr:postSplashScreenTheme:2130772000 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:tab:2131361879 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:switch_role:2131361878 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:tab:2131427415 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:switch_role:2131427414 reachable: referenced from in_memory_r8_base_classes0.dex
 Marking attr:windowSplashScreenBackground:2130772012 reachable: referenced from in_memory_r8_base_classes0.dex
 Marking attr:windowSplashScreenAnimatedIcon:2130772010 reachable: referenced from in_memory_r8_base_classes0.dex
 Marking attr:splashScreenIconSize:2130772005 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:view_tree_view_model_store_owner:2131099740 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:default_popup_window_title:2131361807 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:compose_view_saveable_id_tag:2131099691 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_unhandled_key_listeners:2131099730 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking style:EdgeToEdgeFloatingDialogWindowTheme:2131427337 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_bottom_sheet_drag_handle_description:2131361813 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:hide_in_inspector_tag:2131099698 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_0:2131099649 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_1:2131099650 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_2:2131099661 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_3:2131099672 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_4:2131099675 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_5:2131099676 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_6:2131099677 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_7:2131099678 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_8:2131099679 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_9:2131099680 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_10:2131099651 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_11:2131099652 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_12:2131099653 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_13:2131099654 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_14:2131099655 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_15:2131099656 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_16:2131099657 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_17:2131099658 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_18:2131099659 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_19:2131099660 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_20:2131099662 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_21:2131099663 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_22:2131099664 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_23:2131099665 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_24:2131099666 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_25:2131099667 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_26:2131099668 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_27:2131099669 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_28:2131099670 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_29:2131099671 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_30:2131099673 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_custom_action_31:2131099674 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:hide_graphics_layer_in_inspector_tag:2131099696 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking style:DialogWindowTheme:2131427335 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking style:FloatingDialogWindowTheme:2131427338 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_bottom_sheet_pane_title:2131361815 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:close_sheet:2131361805 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_compat_insets_dispatch:2131099721 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_unhandled_key_event_manager:2131099729 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:report_drawn:2131099713 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:androidx_compose_ui_view_composition_context:2131099686 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:compose_prefetch_scheduler:2131099690 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:consume_window_insets_tag:2131099692 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_bottom_sheet_collapse_description:2131361811 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_bottom_sheet_dismiss_description:2131361812 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_bottom_sheet_expand_description:2131361814 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:default_error_message:2131361806 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:view_tree_lifecycle_owner:2131099737 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:inspection_slot_table_set:2131099702 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_period_toggle_description:2131361864 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_hour_selection:2131361857 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_minute_selection:2131361861 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_minute_suffix:2131361862 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_hour_24h_suffix:2131361856 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:m3c_time_picker_hour_suffix:2131361858 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:view_tree_disjoint_parent:2131099736 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_screen_reader_focusable:2131099725 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_accessibility_heading:2131099719 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_accessibility_pane_title:2131099720 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_state_description:2131099726 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_accessibility_actions:2131099717 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:accessibility_action_clickable_span:2131099648 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:tag_accessibility_clickable_spans:2131099718 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:is_pooling_container_tag:2131099703 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:indeterminate:2131361810 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:state_off:2131361875 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:state_on:2131361876 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:selected:2131361872 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:not_selected:2131361869 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:template_percent:2131361880 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:in_progress:2131361809 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking string:state_empty:2131361874 reachable: referenced from in_memory_r8_base_classes0.dex
-Marking id:pooling_container_listener_holder_tag:2131099712 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_view_model_store_owner:2131165276 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:default_popup_window_title:2131427343 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:compose_view_saveable_id_tag:2131165227 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking font:space_grotesk:2131099649 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking font:inter:2131099648 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_unhandled_key_listeners:2131165266 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_bottom_sheet_drag_handle_description:2131427349 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:hide_in_inspector_tag:2131165234 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_0:2131165185 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_1:2131165186 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_2:2131165197 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_3:2131165208 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_4:2131165211 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_5:2131165212 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_6:2131165213 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_7:2131165214 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_8:2131165215 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_9:2131165216 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_10:2131165187 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_11:2131165188 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_12:2131165189 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_13:2131165190 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_14:2131165191 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_15:2131165192 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_16:2131165193 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_17:2131165194 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_18:2131165195 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_19:2131165196 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_20:2131165198 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_21:2131165199 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_22:2131165200 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_23:2131165201 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_24:2131165202 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_25:2131165203 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_26:2131165204 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_27:2131165205 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_28:2131165206 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_29:2131165207 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_30:2131165209 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_31:2131165210 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:hide_graphics_layer_in_inspector_tag:2131165232 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking style:DialogWindowTheme:2131492871 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking style:FloatingDialogWindowTheme:2131492874 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_compat_insets_dispatch:2131165257 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_unhandled_key_event_manager:2131165265 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:report_drawn:2131165249 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:androidx_compose_ui_view_composition_context:2131165222 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:compose_prefetch_scheduler:2131165226 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:consume_window_insets_tag:2131165228 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_lifecycle_owner:2131165273 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_disjoint_parent:2131165272 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:inspection_slot_table_set:2131165238 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_period_toggle_description:2131427400 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_hour_selection:2131427393 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_minute_selection:2131427397 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_minute_suffix:2131427398 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_hour_24h_suffix:2131427392 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_time_picker_hour_suffix:2131427394 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:pooling_container_listener_holder_tag:2131165248 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_screen_reader_focusable:2131165261 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_heading:2131165255 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_pane_title:2131165256 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_state_description:2131165262 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_actions:2131165253 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_action_clickable_span:2131165184 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_clickable_spans:2131165254 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:is_pooling_container_tag:2131165239 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:indeterminate:2131427346 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:state_off:2131427411 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:state_on:2131427412 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:selected:2131427408 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:not_selected:2131427405 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:template_percent:2131427416 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:in_progress:2131427345 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:state_empty:2131427410 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking style:EdgeToEdgeFloatingDialogWindowTheme:2131492873 reachable: referenced from in_memory_r8_base_classes0.dex
 @com.tide.app:attr/action : reachable=false
 @com.tide.app:attr/alpha : reachable=true
 @com.tide.app:attr/argType : reachable=false
@@ -145,18 +145,18 @@ Marking id:pooling_container_listener_holder_tag:2131099712 reachable: reference
 @com.tide.app:attr/windowSplashScreenAnimationDuration : reachable=false
 @com.tide.app:attr/windowSplashScreenBackground : reachable=true
 @com.tide.app:attr/windowSplashScreenIconBackgroundColor : reachable=false
+@com.tide.app:bool/light_system_bars : reachable=false
 @com.tide.app:color/androidx_core_ripple_material_light : reachable=false
 @com.tide.app:color/androidx_core_secondary_text_default_material_light : reachable=false
 @com.tide.app:color/call_notification_answer_color : reachable=false
 @com.tide.app:color/call_notification_decline_color : reachable=false
-@com.tide.app:color/ink : reachable=false
-@com.tide.app:color/mint : reachable=false
 @com.tide.app:color/notification_action_color_filter : reachable=false
     @com.tide.app:color/androidx_core_secondary_text_default_material_light
 @com.tide.app:color/notification_icon_bg_color : reachable=false
+@com.tide.app:color/splash_bg : reachable=false
 @com.tide.app:color/vector_tint_color : reachable=false
 @com.tide.app:color/vector_tint_theme_color : reachable=false
-@com.tide.app:color/violet : reachable=false
+@com.tide.app:color/window_bg : reachable=false
 @com.tide.app:dimen/compat_button_inset_horizontal_material : reachable=false
 @com.tide.app:dimen/compat_button_inset_vertical_material : reachable=false
 @com.tide.app:dimen/compat_button_padding_horizontal_material : reachable=false
@@ -188,8 +188,6 @@ Marking id:pooling_container_listener_holder_tag:2131099712 reachable: reference
 @com.tide.app:dimen/splashscreen_icon_size_no_background : reachable=false
 @com.tide.app:dimen/splashscreen_icon_size_with_background : reachable=false
 @com.tide.app:drawable/$ic_launcher_background__0 : reachable=false
-@com.tide.app:drawable/$ic_launcher_foreground__0 : reachable=false
-@com.tide.app:drawable/$ic_splash_logo__0 : reachable=false
 @com.tide.app:drawable/compat_splash_screen : reachable=false
     @com.tide.app:attr/windowSplashScreenBackground
     @com.tide.app:drawable/icon_background
@@ -212,10 +210,8 @@ Marking id:pooling_container_listener_holder_tag:2131099712 reachable: reference
 @com.tide.app:drawable/ic_launcher_background : reachable=false
     @com.tide.app:drawable/$ic_launcher_background__0
 @com.tide.app:drawable/ic_launcher_foreground : reachable=false
-    @com.tide.app:drawable/$ic_launcher_foreground__0
 @com.tide.app:drawable/ic_launcher_monochrome : reachable=false
 @com.tide.app:drawable/ic_splash_logo : reachable=false
-    @com.tide.app:drawable/$ic_splash_logo__0
 @com.tide.app:drawable/ic_stat_tide : reachable=true
 @com.tide.app:drawable/icon_background : reachable=false
     @com.tide.app:attr/windowSplashScreenIconBackgroundColor
@@ -520,10 +516,11 @@ Marking id:pooling_container_listener_holder_tag:2131099712 reachable: reference
     @com.tide.app:attr/splashScreenIconSize
     @com.tide.app:attr/windowSplashScreenIconBackgroundColor
 @com.tide.app:style/Theme_Tide : reachable=true
-    @com.tide.app:color/ink
+    @com.tide.app:color/window_bg
+    @com.tide.app:bool/light_system_bars
 @com.tide.app:style/Theme_Tide_Starting : reachable=true
     @com.tide.app:style/Theme_SplashScreen
-    @com.tide.app:color/ink
+    @com.tide.app:color/splash_bg
     @com.tide.app:attr/windowSplashScreenBackground
     @com.tide.app:drawable/ic_splash_logo
     @com.tide.app:attr/windowSplashScreenAnimatedIcon
@@ -547,277 +544,275 @@ The root reachable resources are:
  attr:splashScreenIconSize:2130772005
  attr:windowSplashScreenAnimatedIcon:2130772010
  attr:windowSplashScreenBackground:2130772012
- drawable:ic_stat_tide:2130968591
- font:inter:2131034112
- font:space_grotesk:2131034113
- id:accessibility_action_clickable_span:2131099648
- id:accessibility_custom_action_0:2131099649
- id:accessibility_custom_action_1:2131099650
- id:accessibility_custom_action_10:2131099651
- id:accessibility_custom_action_11:2131099652
- id:accessibility_custom_action_12:2131099653
- id:accessibility_custom_action_13:2131099654
- id:accessibility_custom_action_14:2131099655
- id:accessibility_custom_action_15:2131099656
- id:accessibility_custom_action_16:2131099657
- id:accessibility_custom_action_17:2131099658
- id:accessibility_custom_action_18:2131099659
- id:accessibility_custom_action_19:2131099660
- id:accessibility_custom_action_2:2131099661
- id:accessibility_custom_action_20:2131099662
- id:accessibility_custom_action_21:2131099663
- id:accessibility_custom_action_22:2131099664
- id:accessibility_custom_action_23:2131099665
- id:accessibility_custom_action_24:2131099666
- id:accessibility_custom_action_25:2131099667
- id:accessibility_custom_action_26:2131099668
- id:accessibility_custom_action_27:2131099669
- id:accessibility_custom_action_28:2131099670
- id:accessibility_custom_action_29:2131099671
- id:accessibility_custom_action_3:2131099672
- id:accessibility_custom_action_30:2131099673
- id:accessibility_custom_action_31:2131099674
- id:accessibility_custom_action_4:2131099675
- id:accessibility_custom_action_5:2131099676
- id:accessibility_custom_action_6:2131099677
- id:accessibility_custom_action_7:2131099678
- id:accessibility_custom_action_8:2131099679
- id:accessibility_custom_action_9:2131099680
- id:androidx_compose_ui_view_composition_context:2131099686
- id:compose_prefetch_scheduler:2131099690
- id:compose_view_saveable_id_tag:2131099691
- id:consume_window_insets_tag:2131099692
- id:hide_graphics_layer_in_inspector_tag:2131099696
- id:hide_in_inspector_tag:2131099698
- id:inspection_slot_table_set:2131099702
- id:is_pooling_container_tag:2131099703
- id:pooling_container_listener_holder_tag:2131099712
- id:report_drawn:2131099713
- id:tag_accessibility_actions:2131099717
- id:tag_accessibility_clickable_spans:2131099718
- id:tag_accessibility_heading:2131099719
- id:tag_accessibility_pane_title:2131099720
- id:tag_compat_insets_dispatch:2131099721
- id:tag_on_apply_window_listener:2131099722
- id:tag_screen_reader_focusable:2131099725
- id:tag_state_description:2131099726
- id:tag_unhandled_key_event_manager:2131099729
- id:tag_unhandled_key_listeners:2131099730
- id:tag_window_insets_animation_callback:2131099731
- id:view_tree_disjoint_parent:2131099736
- id:view_tree_lifecycle_owner:2131099737
- id:view_tree_on_back_pressed_dispatcher_owner:2131099738
- id:view_tree_saved_state_registry_owner:2131099739
- id:view_tree_view_model_store_owner:2131099740
- id:wrapped_composition_tag:2131099741
- mipmap:ic_launcher:2131296256
- string:accessibility_service_label:2131361793
- string:androidx_startup:2131361794
- string:app_name:2131361795
- string:autofill:2131361796
- string:close_sheet:2131361805
- string:default_error_message:2131361806
- string:default_popup_window_title:2131361807
- string:in_progress:2131361809
- string:indeterminate:2131361810
- string:m3c_bottom_sheet_collapse_description:2131361811
- string:m3c_bottom_sheet_dismiss_description:2131361812
- string:m3c_bottom_sheet_drag_handle_description:2131361813
- string:m3c_bottom_sheet_expand_description:2131361814
- string:m3c_bottom_sheet_pane_title:2131361815
- string:m3c_dialog:2131361847
- string:m3c_time_picker_am:2131361854
- string:m3c_time_picker_hour_24h_suffix:2131361856
- string:m3c_time_picker_hour_selection:2131361857
- string:m3c_time_picker_hour_suffix:2131361858
- string:m3c_time_picker_minute_selection:2131361861
- string:m3c_time_picker_minute_suffix:2131361862
- string:m3c_time_picker_period_toggle_description:2131361864
- string:m3c_time_picker_pm:2131361865
- string:not_selected:2131361869
- string:selected:2131361872
- string:state_empty:2131361874
- string:state_off:2131361875
- string:state_on:2131361876
- string:switch_role:2131361878
- string:tab:2131361879
- string:template_percent:2131361880
- style:DialogWindowTheme:2131427335
- style:EdgeToEdgeFloatingDialogWindowTheme:2131427337
- style:FloatingDialogWindowTheme:2131427338
- style:Theme_Tide:2131427347
- style:Theme_Tide_Starting:2131427348
- xml:accessibility_service_config:2131558400
- xml:backup_rules:2131558401
- xml:data_extraction_rules:2131558402
+ drawable:ic_stat_tide:2131034125
+ font:inter:2131099648
+ font:space_grotesk:2131099649
+ id:accessibility_action_clickable_span:2131165184
+ id:accessibility_custom_action_0:2131165185
+ id:accessibility_custom_action_1:2131165186
+ id:accessibility_custom_action_10:2131165187
+ id:accessibility_custom_action_11:2131165188
+ id:accessibility_custom_action_12:2131165189
+ id:accessibility_custom_action_13:2131165190
+ id:accessibility_custom_action_14:2131165191
+ id:accessibility_custom_action_15:2131165192
+ id:accessibility_custom_action_16:2131165193
+ id:accessibility_custom_action_17:2131165194
+ id:accessibility_custom_action_18:2131165195
+ id:accessibility_custom_action_19:2131165196
+ id:accessibility_custom_action_2:2131165197
+ id:accessibility_custom_action_20:2131165198
+ id:accessibility_custom_action_21:2131165199
+ id:accessibility_custom_action_22:2131165200
+ id:accessibility_custom_action_23:2131165201
+ id:accessibility_custom_action_24:2131165202
+ id:accessibility_custom_action_25:2131165203
+ id:accessibility_custom_action_26:2131165204
+ id:accessibility_custom_action_27:2131165205
+ id:accessibility_custom_action_28:2131165206
+ id:accessibility_custom_action_29:2131165207
+ id:accessibility_custom_action_3:2131165208
+ id:accessibility_custom_action_30:2131165209
+ id:accessibility_custom_action_31:2131165210
+ id:accessibility_custom_action_4:2131165211
+ id:accessibility_custom_action_5:2131165212
+ id:accessibility_custom_action_6:2131165213
+ id:accessibility_custom_action_7:2131165214
+ id:accessibility_custom_action_8:2131165215
+ id:accessibility_custom_action_9:2131165216
+ id:androidx_compose_ui_view_composition_context:2131165222
+ id:compose_prefetch_scheduler:2131165226
+ id:compose_view_saveable_id_tag:2131165227
+ id:consume_window_insets_tag:2131165228
+ id:hide_graphics_layer_in_inspector_tag:2131165232
+ id:hide_in_inspector_tag:2131165234
+ id:inspection_slot_table_set:2131165238
+ id:is_pooling_container_tag:2131165239
+ id:pooling_container_listener_holder_tag:2131165248
+ id:report_drawn:2131165249
+ id:tag_accessibility_actions:2131165253
+ id:tag_accessibility_clickable_spans:2131165254
+ id:tag_accessibility_heading:2131165255
+ id:tag_accessibility_pane_title:2131165256
+ id:tag_compat_insets_dispatch:2131165257
+ id:tag_on_apply_window_listener:2131165258
+ id:tag_screen_reader_focusable:2131165261
+ id:tag_state_description:2131165262
+ id:tag_unhandled_key_event_manager:2131165265
+ id:tag_unhandled_key_listeners:2131165266
+ id:tag_window_insets_animation_callback:2131165267
+ id:view_tree_disjoint_parent:2131165272
+ id:view_tree_lifecycle_owner:2131165273
+ id:view_tree_on_back_pressed_dispatcher_owner:2131165274
+ id:view_tree_saved_state_registry_owner:2131165275
+ id:view_tree_view_model_store_owner:2131165276
+ id:wrapped_composition_tag:2131165277
+ mipmap:ic_launcher:2131361792
+ string:accessibility_service_label:2131427329
+ string:androidx_startup:2131427330
+ string:app_name:2131427331
+ string:autofill:2131427332
+ string:close_sheet:2131427341
+ string:default_error_message:2131427342
+ string:default_popup_window_title:2131427343
+ string:in_progress:2131427345
+ string:indeterminate:2131427346
+ string:m3c_bottom_sheet_collapse_description:2131427347
+ string:m3c_bottom_sheet_dismiss_description:2131427348
+ string:m3c_bottom_sheet_drag_handle_description:2131427349
+ string:m3c_bottom_sheet_expand_description:2131427350
+ string:m3c_bottom_sheet_pane_title:2131427351
+ string:m3c_dialog:2131427383
+ string:m3c_time_picker_am:2131427390
+ string:m3c_time_picker_hour_24h_suffix:2131427392
+ string:m3c_time_picker_hour_selection:2131427393
+ string:m3c_time_picker_hour_suffix:2131427394
+ string:m3c_time_picker_minute_selection:2131427397
+ string:m3c_time_picker_minute_suffix:2131427398
+ string:m3c_time_picker_period_toggle_description:2131427400
+ string:m3c_time_picker_pm:2131427401
+ string:not_selected:2131427405
+ string:selected:2131427408
+ string:state_empty:2131427410
+ string:state_off:2131427411
+ string:state_on:2131427412
+ string:switch_role:2131427414
+ string:tab:2131427415
+ string:template_percent:2131427416
+ style:DialogWindowTheme:2131492871
+ style:EdgeToEdgeFloatingDialogWindowTheme:2131492873
+ style:FloatingDialogWindowTheme:2131492874
+ style:Theme_Tide:2131492883
+ style:Theme_Tide_Starting:2131492884
+ xml:accessibility_service_config:2131623936
+ xml:backup_rules:2131623937
+ xml:data_extraction_rules:2131623938
 Unused resources are: 
- color:androidx_core_ripple_material_light:2130837504
- color:androidx_core_secondary_text_default_material_light:2130837505
- color:call_notification_answer_color:2130837506
- color:call_notification_decline_color:2130837507
- color:mint:2130837509
- color:notification_action_color_filter:2130837510
- color:notification_icon_bg_color:2130837511
- color:vector_tint_color:2130837512
- color:vector_tint_theme_color:2130837513
- color:violet:2130837514
- dimen:compat_button_inset_horizontal_material:2130903040
- dimen:compat_button_inset_vertical_material:2130903041
- dimen:compat_button_padding_horizontal_material:2130903042
- dimen:compat_button_padding_vertical_material:2130903043
- dimen:compat_control_corner_material:2130903044
- dimen:compat_notification_large_icon_max_height:2130903045
- dimen:compat_notification_large_icon_max_width:2130903046
- dimen:notification_action_icon_size:2130903047
- dimen:notification_action_text_size:2130903048
- dimen:notification_big_circle_margin:2130903049
- dimen:notification_content_margin_start:2130903050
- dimen:notification_large_icon_height:2130903051
- dimen:notification_large_icon_width:2130903052
- dimen:notification_main_column_padding_top:2130903053
- dimen:notification_media_narrow_margin:2130903054
- dimen:notification_right_icon_size:2130903055
- dimen:notification_right_side_padding_top:2130903056
- dimen:notification_small_icon_background_padding:2130903057
- dimen:notification_small_icon_size_as_large:2130903058
- dimen:notification_subtext_size:2130903059
- dimen:notification_top_pad:2130903060
- dimen:notification_top_pad_large_text:2130903061
- dimen:splashscreen_icon_mask_size_with_background:2130903063
- dimen:splashscreen_icon_mask_stroke_with_background:2130903065
- dimen:splashscreen_icon_size:2130903066
- dimen:splashscreen_icon_size_with_background:2130903068
- drawable:compat_splash_screen:2130968579
- drawable:ic_call_answer:2130968581
- drawable:ic_call_answer_low:2130968582
- drawable:ic_call_answer_video:2130968583
- drawable:ic_call_answer_video_low:2130968584
- drawable:ic_call_decline:2130968585
- drawable:ic_call_decline_low:2130968586
- drawable:icon_background:2130968592
- drawable:notification_action_background:2130968593
- drawable:notification_bg:2130968594
- drawable:notification_bg_low:2130968595
- drawable:notification_bg_low_normal:2130968596
- drawable:notification_bg_low_pressed:2130968597
- drawable:notification_bg_normal:2130968598
- drawable:notification_bg_normal_pressed:2130968599
- drawable:notification_icon_background:2130968600
- drawable:notification_oversize_large_icon_bg:2130968601
- drawable:notification_template_icon_bg:2130968602
- drawable:notification_template_icon_low_bg:2130968603
- drawable:notification_tile_bg:2130968604
- drawable:notify_panel_notification_icon_bg:2130968605
- id:action_container:2131099681
- id:action_divider:2131099682
- id:action_image:2131099683
- id:action_text:2131099684
- id:actions:2131099685
- id:async:2131099687
- id:blocking:2131099688
- id:chronometer:2131099689
- id:dialog_button:2131099693
- id:edit_text_id:2131099694
- id:forever:2131099695
- id:hide_ime_id:2131099697
- id:icon:2131099699
- id:icon_group:2131099700
- id:info:2131099701
- id:italic:2131099704
- id:line1:2131099705
- id:line3:2131099706
- id:nav_controller_view_tag:2131099707
- id:normal:2131099708
- id:notification_background:2131099709
- id:notification_main_column:2131099710
- id:notification_main_column_container:2131099711
- id:right_icon:2131099714
- id:right_side:2131099715
- id:splashscreen_icon_view:2131099716
- id:tag_on_receive_content_listener:2131099723
- id:tag_on_receive_content_mime_types:2131099724
- id:tag_system_bar_state_monitor:2131099727
- id:tag_transition_group:2131099728
- id:text:2131099732
- id:text2:2131099733
- id:time:2131099734
- id:title:2131099735
- integer:status_bar_notification_info_maxnum:2131165186
- layout:custom_dialog:2131230720
- layout:ime_base_split_test_activity:2131230721
- layout:ime_secondary_split_test_activity:2131230722
- layout:notification_action:2131230723
- layout:notification_action_tombstone:2131230724
- layout:notification_template_custom_big:2131230725
- layout:notification_template_icon_group:2131230726
- layout:notification_template_part_chronometer:2131230727
- layout:notification_template_part_time:2131230728
- layout:splash_screen_view:2131230729
- mipmap:ic_launcher_round:2131296257
- string:call_notification_answer_action:2131361797
- string:call_notification_answer_video_action:2131361798
- string:call_notification_decline_action:2131361799
- string:call_notification_hang_up_action:2131361800
- string:call_notification_incoming_text:2131361801
- string:call_notification_ongoing_text:2131361802
- string:call_notification_screening_text:2131361803
- string:close_drawer:2131361804
- string:dropdown_menu:2131361808
- string:m3c_date_input_headline:2131361816
- string:m3c_date_input_headline_description:2131361817
- string:m3c_date_input_invalid_for_pattern:2131361818
- string:m3c_date_input_invalid_not_allowed:2131361819
- string:m3c_date_input_invalid_year_range:2131361820
- string:m3c_date_input_label:2131361821
- string:m3c_date_input_no_input_description:2131361822
- string:m3c_date_input_title:2131361823
- string:m3c_date_picker_headline:2131361824
- string:m3c_date_picker_headline_description:2131361825
- string:m3c_date_picker_navigate_to_year_description:2131361826
- string:m3c_date_picker_no_selection_description:2131361827
- string:m3c_date_picker_scroll_to_earlier_years:2131361828
- string:m3c_date_picker_scroll_to_later_years:2131361829
- string:m3c_date_picker_switch_to_calendar_mode:2131361830
- string:m3c_date_picker_switch_to_day_selection:2131361831
- string:m3c_date_picker_switch_to_input_mode:2131361832
- string:m3c_date_picker_switch_to_next_month:2131361833
- string:m3c_date_picker_switch_to_previous_month:2131361834
- string:m3c_date_picker_switch_to_year_selection:2131361835
- string:m3c_date_picker_title:2131361836
- string:m3c_date_picker_today_description:2131361837
- string:m3c_date_picker_year_picker_pane_title:2131361838
- string:m3c_date_range_input_invalid_range_input:2131361839
- string:m3c_date_range_input_title:2131361840
- string:m3c_date_range_picker_day_in_range:2131361841
- string:m3c_date_range_picker_end_headline:2131361842
- string:m3c_date_range_picker_scroll_to_next_month:2131361843
- string:m3c_date_range_picker_scroll_to_previous_month:2131361844
- string:m3c_date_range_picker_start_headline:2131361845
- string:m3c_date_range_picker_title:2131361846
- string:m3c_dropdown_menu_collapsed:2131361848
- string:m3c_dropdown_menu_expanded:2131361849
- string:m3c_dropdown_menu_toggle:2131361850
- string:m3c_search_bar_search:2131361851
- string:m3c_snackbar_dismiss:2131361852
- string:m3c_suggestions_available:2131361853
- string:m3c_time_picker_hour:2131361855
- string:m3c_time_picker_hour_text_field:2131361859
- string:m3c_time_picker_minute:2131361860
- string:m3c_time_picker_minute_text_field:2131361863
- string:m3c_tooltip_long_press_label:2131361866
- string:m3c_tooltip_pane_description:2131361867
- string:navigation_menu:2131361868
- string:range_end:2131361870
- string:range_start:2131361871
- string:snackbar_pane_title:2131361873
- string:status_bar_notification_info_overflow:2131361877
- string:tooltip_description:2131361881
- string:tooltip_label:2131361882
- style:TextAppearance_Compat_Notification:2131427339
- style:TextAppearance_Compat_Notification_Info:2131427340
- style:TextAppearance_Compat_Notification_Line2:2131427341
- style:TextAppearance_Compat_Notification_Time:2131427342
- style:TextAppearance_Compat_Notification_Title:2131427343
- style:Theme_SplashScreen_IconBackground:2131427346
- style:Widget_Compat_NotificationActionContainer:2131427349
- style:Widget_Compat_NotificationActionText:2131427350
+ color:androidx_core_ripple_material_light:2130903040
+ color:androidx_core_secondary_text_default_material_light:2130903041
+ color:call_notification_answer_color:2130903042
+ color:call_notification_decline_color:2130903043
+ color:notification_action_color_filter:2130903044
+ color:notification_icon_bg_color:2130903045
+ color:vector_tint_color:2130903047
+ color:vector_tint_theme_color:2130903048
+ dimen:compat_button_inset_horizontal_material:2130968576
+ dimen:compat_button_inset_vertical_material:2130968577
+ dimen:compat_button_padding_horizontal_material:2130968578
+ dimen:compat_button_padding_vertical_material:2130968579
+ dimen:compat_control_corner_material:2130968580
+ dimen:compat_notification_large_icon_max_height:2130968581
+ dimen:compat_notification_large_icon_max_width:2130968582
+ dimen:notification_action_icon_size:2130968583
+ dimen:notification_action_text_size:2130968584
+ dimen:notification_big_circle_margin:2130968585
+ dimen:notification_content_margin_start:2130968586
+ dimen:notification_large_icon_height:2130968587
+ dimen:notification_large_icon_width:2130968588
+ dimen:notification_main_column_padding_top:2130968589
+ dimen:notification_media_narrow_margin:2130968590
+ dimen:notification_right_icon_size:2130968591
+ dimen:notification_right_side_padding_top:2130968592
+ dimen:notification_small_icon_background_padding:2130968593
+ dimen:notification_small_icon_size_as_large:2130968594
+ dimen:notification_subtext_size:2130968595
+ dimen:notification_top_pad:2130968596
+ dimen:notification_top_pad_large_text:2130968597
+ dimen:splashscreen_icon_mask_size_with_background:2130968599
+ dimen:splashscreen_icon_mask_stroke_with_background:2130968601
+ dimen:splashscreen_icon_size:2130968602
+ dimen:splashscreen_icon_size_with_background:2130968604
+ drawable:compat_splash_screen:2131034113
+ drawable:ic_call_answer:2131034115
+ drawable:ic_call_answer_low:2131034116
+ drawable:ic_call_answer_video:2131034117
+ drawable:ic_call_answer_video_low:2131034118
+ drawable:ic_call_decline:2131034119
+ drawable:ic_call_decline_low:2131034120
+ drawable:icon_background:2131034126
+ drawable:notification_action_background:2131034127
+ drawable:notification_bg:2131034128
+ drawable:notification_bg_low:2131034129
+ drawable:notification_bg_low_normal:2131034130
+ drawable:notification_bg_low_pressed:2131034131
+ drawable:notification_bg_normal:2131034132
+ drawable:notification_bg_normal_pressed:2131034133
+ drawable:notification_icon_background:2131034134
+ drawable:notification_oversize_large_icon_bg:2131034135
+ drawable:notification_template_icon_bg:2131034136
+ drawable:notification_template_icon_low_bg:2131034137
+ drawable:notification_tile_bg:2131034138
+ drawable:notify_panel_notification_icon_bg:2131034139
+ id:action_container:2131165217
+ id:action_divider:2131165218
+ id:action_image:2131165219
+ id:action_text:2131165220
+ id:actions:2131165221
+ id:async:2131165223
+ id:blocking:2131165224
+ id:chronometer:2131165225
+ id:dialog_button:2131165229
+ id:edit_text_id:2131165230
+ id:forever:2131165231
+ id:hide_ime_id:2131165233
+ id:icon:2131165235
+ id:icon_group:2131165236
+ id:info:2131165237
+ id:italic:2131165240
+ id:line1:2131165241
+ id:line3:2131165242
+ id:nav_controller_view_tag:2131165243
+ id:normal:2131165244
+ id:notification_background:2131165245
+ id:notification_main_column:2131165246
+ id:notification_main_column_container:2131165247
+ id:right_icon:2131165250
+ id:right_side:2131165251
+ id:splashscreen_icon_view:2131165252
+ id:tag_on_receive_content_listener:2131165259
+ id:tag_on_receive_content_mime_types:2131165260
+ id:tag_system_bar_state_monitor:2131165263
+ id:tag_transition_group:2131165264
+ id:text:2131165268
+ id:text2:2131165269
+ id:time:2131165270
+ id:title:2131165271
+ integer:status_bar_notification_info_maxnum:2131230722
+ layout:custom_dialog:2131296256
+ layout:ime_base_split_test_activity:2131296257
+ layout:ime_secondary_split_test_activity:2131296258
+ layout:notification_action:2131296259
+ layout:notification_action_tombstone:2131296260
+ layout:notification_template_custom_big:2131296261
+ layout:notification_template_icon_group:2131296262
+ layout:notification_template_part_chronometer:2131296263
+ layout:notification_template_part_time:2131296264
+ layout:splash_screen_view:2131296265
+ mipmap:ic_launcher_round:2131361793
+ string:call_notification_answer_action:2131427333
+ string:call_notification_answer_video_action:2131427334
+ string:call_notification_decline_action:2131427335
+ string:call_notification_hang_up_action:2131427336
+ string:call_notification_incoming_text:2131427337
+ string:call_notification_ongoing_text:2131427338
+ string:call_notification_screening_text:2131427339
+ string:close_drawer:2131427340
+ string:dropdown_menu:2131427344
+ string:m3c_date_input_headline:2131427352
+ string:m3c_date_input_headline_description:2131427353
+ string:m3c_date_input_invalid_for_pattern:2131427354
+ string:m3c_date_input_invalid_not_allowed:2131427355
+ string:m3c_date_input_invalid_year_range:2131427356
+ string:m3c_date_input_label:2131427357
+ string:m3c_date_input_no_input_description:2131427358
+ string:m3c_date_input_title:2131427359
+ string:m3c_date_picker_headline:2131427360
+ string:m3c_date_picker_headline_description:2131427361
+ string:m3c_date_picker_navigate_to_year_description:2131427362
+ string:m3c_date_picker_no_selection_description:2131427363
+ string:m3c_date_picker_scroll_to_earlier_years:2131427364
+ string:m3c_date_picker_scroll_to_later_years:2131427365
+ string:m3c_date_picker_switch_to_calendar_mode:2131427366
+ string:m3c_date_picker_switch_to_day_selection:2131427367
+ string:m3c_date_picker_switch_to_input_mode:2131427368
+ string:m3c_date_picker_switch_to_next_month:2131427369
+ string:m3c_date_picker_switch_to_previous_month:2131427370
+ string:m3c_date_picker_switch_to_year_selection:2131427371
+ string:m3c_date_picker_title:2131427372
+ string:m3c_date_picker_today_description:2131427373
+ string:m3c_date_picker_year_picker_pane_title:2131427374
+ string:m3c_date_range_input_invalid_range_input:2131427375
+ string:m3c_date_range_input_title:2131427376
+ string:m3c_date_range_picker_day_in_range:2131427377
+ string:m3c_date_range_picker_end_headline:2131427378
+ string:m3c_date_range_picker_scroll_to_next_month:2131427379
+ string:m3c_date_range_picker_scroll_to_previous_month:2131427380
+ string:m3c_date_range_picker_start_headline:2131427381
+ string:m3c_date_range_picker_title:2131427382
+ string:m3c_dropdown_menu_collapsed:2131427384
+ string:m3c_dropdown_menu_expanded:2131427385
+ string:m3c_dropdown_menu_toggle:2131427386
+ string:m3c_search_bar_search:2131427387
+ string:m3c_snackbar_dismiss:2131427388
+ string:m3c_suggestions_available:2131427389
+ string:m3c_time_picker_hour:2131427391
+ string:m3c_time_picker_hour_text_field:2131427395
+ string:m3c_time_picker_minute:2131427396
+ string:m3c_time_picker_minute_text_field:2131427399
+ string:m3c_tooltip_long_press_label:2131427402
+ string:m3c_tooltip_pane_description:2131427403
+ string:navigation_menu:2131427404
+ string:range_end:2131427406
+ string:range_start:2131427407
+ string:snackbar_pane_title:2131427409
+ string:status_bar_notification_info_overflow:2131427413
+ string:tooltip_description:2131427417
+ string:tooltip_label:2131427418
+ style:TextAppearance_Compat_Notification:2131492875
+ style:TextAppearance_Compat_Notification_Info:2131492876
+ style:TextAppearance_Compat_Notification_Line2:2131492877
+ style:TextAppearance_Compat_Notification_Time:2131492878
+ style:TextAppearance_Compat_Notification_Title:2131492879
+ style:Theme_SplashScreen_IconBackground:2131492882
+ style:Widget_Compat_NotificationActionContainer:2131492885
+ style:Widget_Compat_NotificationActionText:2131492886

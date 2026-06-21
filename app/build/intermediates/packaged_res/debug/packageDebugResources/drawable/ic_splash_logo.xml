@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+    <!-- Clay tide ring -->
     <path
         android:pathData="M54,36 a18,18 0 1,1 -0.01,0 Z M54,43 a11,11 0 1,0 0.01,0 Z"
-        android:fillType="evenOdd">
-        <aapt:attr name="android:fillColor">
-            <gradient
-                android:type="linear"
-                android:startX="39"
-                android:startY="69"
-                android:endX="69"
-                android:endY="39">
-                <item android:offset="0.0" android:color="#FF8B7CF6" />
-                <item android:offset="1.0" android:color="#FF5EEAD4" />
-            </gradient>
-        </aapt:attr>
-    </path>
+        android:fillType="evenOdd"
+        android:fillColor="#B8512F" />
+    <!-- Sea bead -->
     <path
-        android:pathData="M68,38 a3.6,3.6 0 1,1 -0.01,0 Z"
-        android:fillColor="#FFEFFCF9" />
+        android:pathData="M67,40 a3.8,3.8 0 1,1 -0.01,0 Z"
+        android:fillColor="#2C6E68" />
 </vector>

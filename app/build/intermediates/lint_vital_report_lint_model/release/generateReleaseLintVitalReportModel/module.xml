@@ -1,6 +1,6 @@
 <lint-module
     format="1"
-    dir="/Users/saketh/Downloads/Tide/app"
+    dir="/Users/saketh/Documents/Code/Tide/app"
     name=":app"
     type="APP"
     maven="Tide:app:unspecified"

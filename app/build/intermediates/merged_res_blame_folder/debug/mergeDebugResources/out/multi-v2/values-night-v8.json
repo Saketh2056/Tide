@@ -11,6 +11,40 @@
                         "startOffsets": "55",
                         "endColumns": "85",
                         "endOffsets": "136"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "191",
+                        "endColumns": "85",
+                        "endOffsets": "272"
+                    }
+                },
+                {
+                    "source": "/Users/saketh/Documents/Code/Tide/app/src/main/res/values-night/bools.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "47",
+                        "endOffsets": "98"
+                    }
+                },
+                {
+                    "source": "/Users/saketh/Documents/Code/Tide/app/src/main/res/values-night/colors.xml",
+                    "from": {
+                        "startLines": "3,2",
+                        "startColumns": "4,4",
+                        "startOffsets": "99,55",
+                        "endColumns": "43,43",
+                        "endOffsets": "138,94"
+                    },
+                    "to": {
+                        "startLines": "3,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "103,147",
+                        "endColumns": "43,43",
+                        "endOffsets": "142,186"
                     }
                 }
             ]

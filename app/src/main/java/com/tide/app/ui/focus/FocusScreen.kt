@@ -50,8 +50,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
@@ -63,15 +61,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tide.app.appContainer
 import com.tide.app.data.db.FocusSessionEntity
 import com.tide.app.ui.components.AppIcon
-import com.tide.app.ui.components.GlassCard
-import com.tide.app.ui.components.GradientButton
+import com.tide.app.ui.components.PrimaryButton
 import com.tide.app.ui.components.SectionHeader
 import com.tide.app.ui.components.StatTile
 import com.tide.app.ui.components.TickerText
+import com.tide.app.ui.components.TideCard
+import com.tide.app.ui.components.reduceMotion
 import com.tide.app.ui.shields.MultiAppPicker
-import com.tide.app.ui.theme.Mint
-import com.tide.app.ui.theme.Motion
-import com.tide.app.ui.theme.Violet
+import com.tide.app.ui.theme.tide
 import com.tide.app.util.Time
 import java.time.Instant
 import java.time.ZoneId
@@ -108,16 +105,14 @@ fun FocusScreen() {
     }
 
     celebrate?.let { targetMillis ->
-        CelebrationOverlay(
-            minutes = (targetMillis / 60_000L).toInt(),
-            onDismiss = { vm.dismissCelebration() }
-        )
+        CelebrationOverlay(minutes = (targetMillis / 60_000L).toInt(), onDismiss = { vm.dismissCelebration() })
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SessionSetup(vm: FocusViewModel) {
+    val c = MaterialTheme.tide
     val blocklist by vm.blocklist.collectAsStateWithLifecycle()
     val apps by vm.apps.collectAsStateWithLifecycle()
     val focusedWeek by vm.focusedThisWeek.collectAsStateWithLifecycle()
@@ -130,52 +125,31 @@ private fun SessionSetup(vm: FocusViewModel) {
 
     LazyColumn(
         modifier = Modifier.fillMaxSize().statusBarsPadding(),
-        contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 16.dp, bottom = 120.dp),
+        contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 18.dp, bottom = 124.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp)
     ) {
-        item {
-            Text(
-                "Focus",
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onBackground
-            )
-        }
+        item { Text("Focus", style = MaterialTheme.typography.headlineLarge, color = c.ink) }
 
         item {
-            GlassCard(modifier = Modifier.fillMaxWidth(), corner = 30.dp) {
-                Column(
-                    Modifier.fillMaxWidth().padding(24.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    TickerText(
-                        text = "$minutes",
-                        style = MaterialTheme.typography.displayLarge
-                    )
-                    Text(
-                        "minutes",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+            TideCard(modifier = Modifier.fillMaxWidth(), corner = 26.dp) {
+                Column(Modifier.fillMaxWidth().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Row(verticalAlignment = Alignment.Bottom) {
+                        TickerText(text = "$minutes", style = MaterialTheme.typography.displayMedium)
+                        Spacer(Modifier.width(8.dp))
+                        Text("min", style = MaterialTheme.typography.titleMedium, color = c.inkMuted, modifier = Modifier.padding(bottom = 12.dp))
+                    }
                     Spacer(Modifier.height(18.dp))
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         PRESETS.forEach { preset ->
                             val selected = minutes == preset
                             Box(
                                 Modifier
-                                    .clip(RoundedCornerShape(14.dp))
-                                    .background(
-                                        if (selected) MaterialTheme.colorScheme.primary
-                                        else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f)
-                                    )
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(if (selected) c.clay else c.canvasInset)
                                     .clickable { minutes = preset }
                                     .padding(horizontal = 18.dp, vertical = 10.dp)
                             ) {
-                                Text(
-                                    "$preset",
-                                    style = MaterialTheme.typography.labelLarge,
-                                    color = if (selected) MaterialTheme.colorScheme.onPrimary
-                                    else MaterialTheme.colorScheme.onSurfaceVariant
-                                )
+                                Text("$preset", style = MaterialTheme.typography.labelLarge, color = if (selected) c.onClay else c.inkMuted)
                             }
                         }
                     }
@@ -183,10 +157,7 @@ private fun SessionSetup(vm: FocusViewModel) {
                         value = minutes.toFloat(),
                         onValueChange = { minutes = ((it / 5).toInt() * 5).coerceAtLeast(5) },
                         valueRange = 5f..180f,
-                        colors = SliderDefaults.colors(
-                            thumbColor = MaterialTheme.colorScheme.primary,
-                            activeTrackColor = MaterialTheme.colorScheme.primary
-                        ),
+                        colors = SliderDefaults.colors(thumbColor = c.clay, activeTrackColor = c.clay, inactiveTrackColor = c.canvasInset),
                         modifier = Modifier.padding(top = 10.dp)
                     )
                     Spacer(Modifier.height(8.dp))
@@ -195,20 +166,12 @@ private fun SessionSetup(vm: FocusViewModel) {
                             val selected = labelIndex == i
                             Box(
                                 Modifier
-                                    .clip(RoundedCornerShape(12.dp))
-                                    .background(
-                                        if (selected) Mint.copy(alpha = 0.15f)
-                                        else Color.Transparent
-                                    )
+                                    .clip(RoundedCornerShape(10.dp))
+                                    .background(if (selected) c.sea.copy(alpha = 0.14f) else androidx.compose.ui.graphics.Color.Transparent)
                                     .clickable { labelIndex = i }
                                     .padding(horizontal = 12.dp, vertical = 8.dp)
                             ) {
-                                Text(
-                                    label,
-                                    style = MaterialTheme.typography.labelMedium,
-                                    color = if (selected) Mint
-                                    else MaterialTheme.colorScheme.onSurfaceVariant
-                                )
+                                Text(label, style = MaterialTheme.typography.labelMedium, color = if (selected) c.seaText else c.inkMuted)
                             }
                         }
                     }
@@ -217,18 +180,10 @@ private fun SessionSetup(vm: FocusViewModel) {
         }
 
         item {
-            GlassCard(
-                modifier = Modifier.fillMaxWidth(),
-                corner = 22.dp,
-                onClick = { showPicker = true }
-            ) {
+            TideCard(modifier = Modifier.fillMaxWidth(), corner = 20.dp, onClick = { showPicker = true }) {
                 Row(Modifier.padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {
-                        Text(
-                            "Distractions to silence",
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
+                        Text("Distractions to silence", style = MaterialTheme.typography.titleMedium, color = c.ink)
                         Text(
                             when (blocklist.size) {
                                 0 -> "Tap to choose apps to block during focus"
@@ -236,34 +191,30 @@ private fun SessionSetup(vm: FocusViewModel) {
                                 else -> "${blocklist.size} apps will be blocked"
                             },
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            color = c.inkMuted,
                             modifier = Modifier.padding(top = 3.dp)
                         )
                     }
                     Row {
-                        blocklist.take(4).forEach { pkg ->
-                            Box(Modifier.padding(start = 4.dp)) { AppIcon(pkg, pkg, size = 30.dp) }
-                        }
+                        blocklist.take(4).forEach { pkg -> Box(Modifier.padding(start = 4.dp)) { AppIcon(pkg, pkg, size = 30.dp) } }
                     }
                 }
             }
         }
 
         item {
-            GradientButton(
+            PrimaryButton(
                 text = "Begin ${LABELS[labelIndex].lowercase()} · ${minutes}m",
                 modifier = Modifier.fillMaxWidth(),
                 enabled = blocklist.isNotEmpty()
-            ) {
-                vm.start(minutes, LABELS[labelIndex])
-            }
+            ) { vm.start(minutes, LABELS[labelIndex]) }
         }
         if (blocklist.isEmpty()) {
             item {
                 Text(
                     "Choose at least one app to silence first",
                     style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = c.inkMuted,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -272,29 +223,17 @@ private fun SessionSetup(vm: FocusViewModel) {
 
         item {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                StatTile(
-                    value = Time.formatDuration(focusedWeek),
-                    label = "this week",
-                    accent = Mint,
-                    modifier = Modifier.weight(1f)
-                )
-                StatTile(
-                    value = "$completedCount",
-                    label = "sessions done",
-                    accent = Violet,
-                    modifier = Modifier.weight(1f)
-                )
+                StatTile(Time.formatDuration(focusedWeek), "this week", accent = c.sea, modifier = Modifier.weight(1f))
+                StatTile("$completedCount", "sessions done", accent = c.clay, modifier = Modifier.weight(1f))
             }
         }
 
         if (recent.isNotEmpty()) {
             item { SectionHeader("Recent sessions") }
             item {
-                GlassCard(modifier = Modifier.fillMaxWidth()) {
+                TideCard(modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(vertical = 6.dp)) {
-                        recent.take(6).forEach { session ->
-                            SessionRow(session)
-                        }
+                        recent.take(6).forEach { session -> SessionRow(session) }
                     }
                 }
             }
@@ -305,23 +244,15 @@ private fun SessionSetup(vm: FocusViewModel) {
         val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
         var working by remember { mutableStateOf(blocklist) }
         ModalBottomSheet(
-            onDismissRequest = {
-                vm.setBlocklist(working)
-                showPicker = false
-            },
+            onDismissRequest = { vm.setBlocklist(working); showPicker = false },
             sheetState = sheetState,
-            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+            containerColor = c.surface
         ) {
             MultiAppPicker(
                 apps = apps,
                 selected = working,
-                onToggle = { pkg ->
-                    working = if (pkg in working) working - pkg else working + pkg
-                },
-                onDone = {
-                    vm.setBlocklist(working)
-                    showPicker = false
-                }
+                onToggle = { pkg -> working = if (pkg in working) working - pkg else working + pkg },
+                onDone = { vm.setBlocklist(working); showPicker = false }
             )
         }
     }
@@ -329,109 +260,77 @@ private fun SessionSetup(vm: FocusViewModel) {
 
 @Composable
 private fun SessionRow(session: FocusSessionEntity) {
-    Row(
-        Modifier.fillMaxWidth().padding(horizontal = 18.dp, vertical = 10.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(
-            Modifier
-                .size(10.dp)
-                .clip(CircleShape)
-                .background(if (session.completed) Mint else MaterialTheme.colorScheme.outline)
-        )
-        Spacer(Modifier.width(12.dp))
+    val c = MaterialTheme.tide
+    Row(Modifier.fillMaxWidth().padding(horizontal = 18.dp, vertical = 11.dp), verticalAlignment = Alignment.CenterVertically) {
+        Box(Modifier.size(9.dp).clip(CircleShape).background(if (session.completed) c.sea else c.inkFaint))
+        Spacer(Modifier.width(13.dp))
         Column(Modifier.weight(1f)) {
             Text(
-                Time.formatDuration(session.endedAt - session.startedAt) +
-                    if (session.completed) "" else " · ended early",
+                Time.formatDuration(session.endedAt - session.startedAt) + if (session.completed) "" else " · ended early",
                 style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.onSurface
+                color = c.ink
             )
             Text(
                 Instant.ofEpochMilli(session.startedAt).atZone(ZoneId.systemDefault())
                     .format(DateTimeFormatter.ofPattern("EEE, MMM d · h:mm a", Locale.US)),
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = c.inkMuted,
                 modifier = Modifier.padding(top = 2.dp)
             )
         }
     }
 }
 
-/** Immersive running-session view: breathing ring, countdown, hold-to-end. */
+/** Immersive running session: a breathing ring, a countdown, a deliberate hold-to-end. */
 @Composable
-private fun ActiveSession(
-    label: String,
-    remainingMillis: Long,
-    totalMillis: Long,
-    onAbandon: () -> Unit
-) {
+private fun ActiveSession(label: String, remainingMillis: Long, totalMillis: Long, onAbandon: () -> Unit) {
+    val c = MaterialTheme.tide
+    val reduce = reduceMotion()
     Column(
         Modifier.fillMaxSize().statusBarsPadding().padding(horizontal = 28.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(Modifier.weight(0.14f))
-        Text(
-            label.ifBlank { "Focus" },
-            style = MaterialTheme.typography.titleLarge,
-            color = Mint
-        )
+        Text(label.ifBlank { "Focus" }, style = MaterialTheme.typography.titleMedium, color = c.seaText)
         Spacer(Modifier.height(26.dp))
 
         val transition = rememberInfiniteTransition(label = "breathe")
         val breathScale by transition.animateFloat(
-            initialValue = 0.97f, targetValue = 1.03f,
-            animationSpec = infiniteRepeatable(tween(4200), RepeatMode.Reverse),
+            initialValue = if (reduce) 1f else 0.97f, targetValue = if (reduce) 1f else 1.03f,
+            animationSpec = infiniteRepeatable(tween(4600), RepeatMode.Reverse),
             label = "breatheScale"
         )
-        val progress = if (totalMillis > 0) {
-            1f - (remainingMillis.toFloat() / totalMillis)
-        } else 0f
+        val progress = if (totalMillis > 0) 1f - (remainingMillis.toFloat() / totalMillis) else 0f
 
-        Box(
-            Modifier.fillMaxWidth(0.78f).aspectRatio(1f).scale(breathScale),
-            contentAlignment = Alignment.Center
-        ) {
+        Box(Modifier.fillMaxWidth(0.76f).aspectRatio(1f).scale(breathScale), contentAlignment = Alignment.Center) {
             Canvas(Modifier.fillMaxSize()) {
-                val strokePx = 12.dp.toPx()
+                val strokePx = 9.dp.toPx()
                 val inset = strokePx
-                val arcSize = androidx.compose.ui.geometry.Size(
-                    size.width - inset * 2, size.height - inset * 2
-                )
+                val arcSize = androidx.compose.ui.geometry.Size(size.width - inset * 2, size.height - inset * 2)
                 drawArc(
-                    color = Violet.copy(alpha = 0.15f),
+                    color = c.hairline,
                     startAngle = -90f, sweepAngle = 360f, useCenter = false,
-                    topLeft = androidx.compose.ui.geometry.Offset(inset, inset),
-                    size = arcSize,
+                    topLeft = androidx.compose.ui.geometry.Offset(inset, inset), size = arcSize,
                     style = Stroke(strokePx, cap = StrokeCap.Round)
                 )
                 drawArc(
-                    brush = Brush.sweepGradient(0f to Violet, 0.5f to Mint, 1f to Violet, center = center),
+                    color = c.sea,
                     startAngle = -90f, sweepAngle = 360f * progress.coerceIn(0f, 1f), useCenter = false,
-                    topLeft = androidx.compose.ui.geometry.Offset(inset, inset),
-                    size = arcSize,
+                    topLeft = androidx.compose.ui.geometry.Offset(inset, inset), size = arcSize,
                     style = Stroke(strokePx, cap = StrokeCap.Round)
                 )
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                TickerText(
-                    text = Time.formatClock(remainingMillis),
-                    style = MaterialTheme.typography.displayMedium
-                )
-                Text(
-                    "remaining",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(top = 4.dp)
-                )
+                TickerText(text = Time.formatClock(remainingMillis), style = MaterialTheme.typography.displayMedium)
+                Text("remaining", style = MaterialTheme.typography.bodyMedium, color = c.inkMuted, modifier = Modifier.padding(top = 6.dp))
             }
         }
 
-        Spacer(Modifier.height(30.dp))
+        Spacer(Modifier.height(32.dp))
         Text(
             "Your distractions are silenced.\nStay with it.",
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = c.inkMuted,
             textAlign = TextAlign.Center
         )
         Spacer(Modifier.weight(0.2f))
@@ -440,9 +339,10 @@ private fun ActiveSession(
     }
 }
 
-/** Ending a session takes a deliberate 1.5-second hold — no accidental quits. */
+/** Ending early takes a deliberate 1.5-second hold — no accidental quits. */
 @Composable
 private fun HoldToEndButton(onComplete: () -> Unit) {
+    val c = MaterialTheme.tide
     var holding by remember { mutableStateOf(false) }
     val progress by animateFloatAsState(
         targetValue = if (holding) 1f else 0f,
@@ -452,78 +352,60 @@ private fun HoldToEndButton(onComplete: () -> Unit) {
     )
     Box(
         Modifier
-            .fillMaxWidth(0.7f)
-            .clip(RoundedCornerShape(20.dp))
-            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
+            .fillMaxWidth(0.72f)
+            .clip(RoundedCornerShape(18.dp))
+            .background(c.canvasInset)
             .pointerInput(Unit) {
-                detectTapGestures(
-                    onPress = {
-                        holding = true
-                        tryAwaitRelease()
-                        holding = false
-                    }
-                )
+                detectTapGestures(onPress = {
+                    holding = true
+                    tryAwaitRelease()
+                    holding = false
+                })
             },
         contentAlignment = Alignment.Center
     ) {
         Box(
-            Modifier
-                .fillMaxWidth(progress)
-                .height(54.dp)
-                .background(MaterialTheme.colorScheme.error.copy(alpha = 0.25f))
-                .align(Alignment.CenterStart)
+            Modifier.fillMaxWidth(progress).height(54.dp).background(c.oxblood.copy(alpha = 0.22f)).align(Alignment.CenterStart)
         )
         Text(
             if (holding) "Keep holding…" else "Hold to end early",
             style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = if (holding) c.oxbloodText else c.inkMuted,
             modifier = Modifier.padding(vertical = 17.dp)
         )
     }
 }
 
-/** Confetti-free celebration: an expanding halo and a big number. */
+/** A quiet celebration: an expanding ring and a big number, in the theme's own light. */
 @Composable
 private fun CelebrationOverlay(minutes: Int, onDismiss: () -> Unit) {
+    val c = MaterialTheme.tide
     LaunchedEffect(Unit) {
         delay(4200)
         onDismiss()
     }
     Box(
-        Modifier
-            .fillMaxSize()
-            .background(Color(0xF20A0D14))
-            .clickable(onClick = onDismiss),
+        Modifier.fillMaxSize().background(c.canvas.copy(alpha = 0.97f)).clickable(onClick = onDismiss),
         contentAlignment = Alignment.Center
     ) {
         val transition = rememberInfiniteTransition(label = "cele")
         val ringScale by transition.animateFloat(
             initialValue = 0.8f, targetValue = 1.25f,
-            animationSpec = infiniteRepeatable(tween(2200), RepeatMode.Restart),
+            animationSpec = infiniteRepeatable(tween(2600), RepeatMode.Restart),
             label = "ring"
         )
-        Canvas(Modifier.size(260.dp)) {
+        Canvas(Modifier.size(280.dp)) {
             drawCircle(
-                brush = Brush.linearGradient(listOf(Violet, Mint)),
+                color = c.sea,
                 radius = size.minDimension / 2 * 0.7f * ringScale,
                 alpha = (1.25f - ringScale).coerceIn(0f, 1f),
-                style = Stroke(3.dp.toPx())
+                style = Stroke(2.5.dp.toPx())
             )
         }
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("✨", style = MaterialTheme.typography.displaySmall)
-            Spacer(Modifier.height(16.dp))
-            Text(
-                "$minutes minutes",
-                style = MaterialTheme.typography.displaySmall,
-                color = Color(0xFFE9ECF5)
-            )
-            Text(
-                "of unbroken focus. Beautiful.",
-                style = MaterialTheme.typography.bodyLarge,
-                color = Color(0xFF9AA3B8),
-                modifier = Modifier.padding(top = 8.dp)
-            )
+            Text("$minutes", style = MaterialTheme.typography.displayLarge, color = c.clayText)
+            Text("minutes of unbroken focus", style = MaterialTheme.typography.titleMedium, color = c.ink, modifier = Modifier.padding(top = 4.dp))
+            Text("Beautifully done.", style = MaterialTheme.typography.bodyMedium, color = c.inkMuted, modifier = Modifier.padding(top = 6.dp))
         }
     }
 }

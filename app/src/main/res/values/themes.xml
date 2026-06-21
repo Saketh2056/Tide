@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Tide" parent="android:Theme.Material.NoActionBar">
-        <item name="android:windowBackground">@color/ink</item>
+        <item name="android:windowBackground">@color/window_bg</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">@bool/light_system_bars</item>
     </style>
 
     <style name="Theme.Tide.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/ink</item>
+        <item name="windowSplashScreenBackground">@color/splash_bg</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
         <item name="windowSplashScreenAnimationDuration">450</item>
         <item name="postSplashScreenTheme">@style/Theme.Tide</item>

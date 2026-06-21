@@ -54,8 +54,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -65,37 +70,36 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.tide.app.appContainer
 import com.tide.app.ui.components.GhostButton
-import com.tide.app.ui.components.GlassCard
-import com.tide.app.ui.components.GradientButton
-import com.tide.app.ui.theme.Ink
-import com.tide.app.ui.theme.Mint
+import com.tide.app.ui.components.PrimaryButton
+import com.tide.app.ui.components.TideCard
 import com.tide.app.ui.theme.Motion
-import com.tide.app.ui.theme.Violet
-import com.tide.app.util.Permissions
+import com.tide.app.ui.theme.tide
+import kotlin.math.PI
+import kotlin.math.sin
 import kotlinx.coroutines.launch
 
 @Composable
 fun OnboardingScreen() {
     val context = LocalContext.current
+    val c = MaterialTheme.tide
     val scope = rememberCoroutineScope()
     val pagerState = rememberPagerState(pageCount = { 3 })
 
-    Box(
-        Modifier
-            .fillMaxSize()
-            .background(Ink)
-    ) {
-        OnboardingGlow(pagerState.currentPage)
-        Column(
-            Modifier
-                .fillMaxSize()
-                .statusBarsPadding()
-                .navigationBarsPadding()
-        ) {
-            HorizontalPager(
-                state = pagerState,
-                modifier = Modifier.weight(1f)
-            ) { page ->
+    Box(Modifier.fillMaxSize().background(c.canvas)) {
+        // A whisper-soft warm wash — permitted on full-bleed brand moments only.
+        Canvas(Modifier.fillMaxSize()) {
+            drawCircle(
+                brush = Brush.radialGradient(
+                    listOf(c.clay.copy(alpha = if (c.isDark) 0.10f else 0.06f), Color.Transparent),
+                    center = Offset(size.width * 0.5f, size.height * 0.12f),
+                    radius = size.width * 0.95f
+                ),
+                center = Offset(size.width * 0.5f, size.height * 0.12f),
+                radius = size.width * 0.95f
+            )
+        }
+        Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+            HorizontalPager(state = pagerState, modifier = Modifier.weight(1f)) { page ->
                 when (page) {
                     0 -> WelcomePage()
                     1 -> PhilosophyPage()
@@ -103,40 +107,23 @@ fun OnboardingScreen() {
                 }
             }
 
-            // Pager dots
             Row(
-                Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .padding(bottom = 20.dp),
+                Modifier.align(Alignment.CenterHorizontally).padding(bottom = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(7.dp)
             ) {
                 repeat(3) { i ->
                     val active = pagerState.currentPage == i
                     val width by animateDpAsState(if (active) 26.dp else 8.dp, Motion.snappy(), label = "dot$i")
-                    val color by animateColorAsState(
-                        if (active) Violet else Color.White.copy(alpha = 0.22f),
-                        label = "dotC$i"
-                    )
-                    Box(
-                        Modifier
-                            .size(width = width, height = 8.dp)
-                            .clip(CircleShape)
-                            .background(color)
-                    )
+                    val color by animateColorAsState(if (active) c.clay else c.hairline, label = "dotC$i")
+                    Box(Modifier.size(width = width, height = 8.dp).clip(CircleShape).background(color))
                 }
             }
 
             val onLastPage = pagerState.currentPage == 2
             Column(Modifier.padding(horizontal = 28.dp).padding(bottom = 24.dp)) {
-                GradientButton(
-                    text = if (onLastPage) "Enter Tide" else "Continue",
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    if (onLastPage) {
-                        scope.launch { context.appContainer.settings.setOnboardingDone() }
-                    } else {
-                        scope.launch { pagerState.animateScrollToPage(pagerState.currentPage + 1) }
-                    }
+                PrimaryButton(text = if (onLastPage) "Enter Tide" else "Continue", modifier = Modifier.fillMaxWidth()) {
+                    if (onLastPage) scope.launch { context.appContainer.settings.setOnboardingDone() }
+                    else scope.launch { pagerState.animateScrollToPage(pagerState.currentPage + 1) }
                 }
                 if (!onLastPage) {
                     Spacer(Modifier.height(10.dp))
@@ -151,33 +138,23 @@ fun OnboardingScreen() {
 
 @Composable
 private fun WelcomePage() {
-    Column(
-        Modifier.fillMaxSize().padding(horizontal = 32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    val c = MaterialTheme.tide
+    Column(Modifier.fillMaxSize().padding(horizontal = 32.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.weight(0.3f))
-        HaloMark(size = 150.dp)
+        TideMark(size = 150.dp)
         Spacer(Modifier.height(44.dp))
         var visible by remember { mutableStateOf(false) }
         LaunchedEffect(Unit) { visible = true }
         AnimatedVisibility(visible, enter = fadeIn(tween(600)) + slideInVertically(tween(600)) { it / 4 }) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    "Tide",
-                    style = MaterialTheme.typography.displayMedium,
-                    color = Color(0xFFE9ECF5)
-                )
+                Text("Tide", style = MaterialTheme.typography.displayMedium, color = c.ink)
                 Spacer(Modifier.height(14.dp))
-                Text(
-                    "Reclaim your attention.",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = Mint
-                )
+                Text("Reclaim your attention.", style = MaterialTheme.typography.titleLarge, color = c.clayText)
                 Spacer(Modifier.height(14.dp))
                 Text(
                     "A calmer relationship with your phone — shields for distracting apps, schedules for protected hours, and focus when it matters.",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color(0xFF9AA3B8),
+                    color = c.inkMuted,
                     textAlign = TextAlign.Center
                 )
             }
@@ -188,49 +165,41 @@ private fun WelcomePage() {
 
 @Composable
 private fun PhilosophyPage() {
-    Column(
-        Modifier.fillMaxSize().padding(horizontal = 28.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    val c = MaterialTheme.tide
+    Column(Modifier.fillMaxSize().padding(horizontal = 28.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(Modifier.weight(0.18f))
-        Text(
-            "Friction, not force",
-            style = MaterialTheme.typography.headlineLarge,
-            color = Color(0xFFE9ECF5),
-            textAlign = TextAlign.Center
-        )
+        Text("Friction, not force", style = MaterialTheme.typography.headlineLarge, color = c.ink, textAlign = TextAlign.Center)
         Spacer(Modifier.height(12.dp))
         Text(
             "Tide doesn't punish you. It opens a quiet pause between impulse and action — and lets you decide.",
             style = MaterialTheme.typography.bodyLarge,
-            color = Color(0xFF9AA3B8),
+            color = c.inkMuted,
             textAlign = TextAlign.Center
         )
         Spacer(Modifier.height(36.dp))
         FeatureRow("🛡", "Shields", "Daily time limits or full blocks for the apps that pull hardest.")
         FeatureRow("🌙", "Schedules", "Protected hours — wind-down at night, deep work each morning.")
-        FeatureRow("✨", "Focus sessions", "One tap into distraction-free time, with a breathing timer.")
-        FeatureRow("📊", "Insights", "Honest analytics and streaks that celebrate your progress.")
+        FeatureRow("✺", "Focus sessions", "One tap into distraction-free time, with a breathing timer.")
+        FeatureRow("☷", "Insights", "Honest analytics and streaks that celebrate your progress.")
         Spacer(Modifier.weight(0.3f))
     }
 }
 
 @Composable
-private fun FeatureRow(emoji: String, title: String, body: String) {
+private fun FeatureRow(glyph: String, title: String, body: String) {
+    val c = MaterialTheme.tide
     var visible by remember { mutableStateOf(false) }
     LaunchedEffect(Unit) { visible = true }
     AnimatedVisibility(visible, enter = fadeIn(tween(500)) + slideInVertically(tween(500)) { it / 3 }) {
-        Row(Modifier.fillMaxWidth().padding(vertical = 10.dp)) {
-            Text(emoji, style = MaterialTheme.typography.headlineSmall)
+        Row(Modifier.fillMaxWidth().padding(vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+            Box(
+                Modifier.size(46.dp).clip(RoundedCornerShape(14.dp)).background(c.clay.copy(alpha = 0.10f)),
+                contentAlignment = Alignment.Center
+            ) { Text(glyph, style = MaterialTheme.typography.titleLarge, color = c.clayText) }
             Spacer(Modifier.width(16.dp))
             Column {
-                Text(title, style = MaterialTheme.typography.titleMedium, color = Color(0xFFE9ECF5))
-                Text(
-                    body,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = Color(0xFF9AA3B8),
-                    modifier = Modifier.padding(top = 2.dp)
-                )
+                Text(title, style = MaterialTheme.typography.titleMedium, color = c.ink)
+                Text(body, style = MaterialTheme.typography.bodyMedium, color = c.inkMuted, modifier = Modifier.padding(top = 2.dp))
             }
         }
     }
@@ -238,41 +207,35 @@ private fun FeatureRow(emoji: String, title: String, body: String) {
 
 @Composable
 private fun PermissionsPage() {
+    val c = MaterialTheme.tide
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
-    var usageGranted by remember { mutableStateOf(Permissions.hasUsageAccess(context)) }
-    var guardianOn by remember { mutableStateOf(Permissions.isGuardianEnabled(context)) }
-    var notifsOn by remember { mutableStateOf(Permissions.hasNotifications(context)) }
+    var usageGranted by remember { mutableStateOf(com.tide.app.util.Permissions.hasUsageAccess(context)) }
+    var guardianOn by remember { mutableStateOf(com.tide.app.util.Permissions.isGuardianEnabled(context)) }
+    var notifsOn by remember { mutableStateOf(com.tide.app.util.Permissions.hasNotifications(context)) }
 
-    // Re-check every time the user comes back from system settings.
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
-                usageGranted = Permissions.hasUsageAccess(context)
-                guardianOn = Permissions.isGuardianEnabled(context)
-                notifsOn = Permissions.hasNotifications(context)
+                usageGranted = com.tide.app.util.Permissions.hasUsageAccess(context)
+                guardianOn = com.tide.app.util.Permissions.isGuardianEnabled(context)
+                notifsOn = com.tide.app.util.Permissions.hasNotifications(context)
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
-    val notifLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted -> notifsOn = granted }
+    val notifLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted -> notifsOn = granted }
 
     Column(Modifier.fillMaxSize().padding(horizontal = 28.dp)) {
         Spacer(Modifier.weight(0.12f))
-        Text(
-            "Two keys to begin",
-            style = MaterialTheme.typography.headlineLarge,
-            color = Color(0xFFE9ECF5)
-        )
+        Text("Two keys to begin", style = MaterialTheme.typography.headlineLarge, color = c.ink)
         Spacer(Modifier.height(10.dp))
         Text(
             "Tide works entirely on your device. Nothing ever leaves it.",
             style = MaterialTheme.typography.bodyLarge,
-            color = Color(0xFF9AA3B8)
+            color = c.inkMuted
         )
         Spacer(Modifier.height(28.dp))
 
@@ -283,11 +246,9 @@ private fun PermissionsPage() {
             granted = usageGranted,
             actionLabel = "Grant"
         ) {
-            runCatching { context.startActivity(Permissions.usageAccessIntent(context)) }
+            runCatching { context.startActivity(com.tide.app.util.Permissions.usageAccessIntent(context)) }
                 .onFailure {
-                    context.startActivity(
-                        android.content.Intent(android.provider.Settings.ACTION_USAGE_ACCESS_SETTINGS)
-                    )
+                    context.startActivity(android.content.Intent(android.provider.Settings.ACTION_USAGE_ACCESS_SETTINGS))
                 }
         }
         Spacer(Modifier.height(14.dp))
@@ -297,9 +258,7 @@ private fun PermissionsPage() {
             body = "An accessibility service that notices which app is open and draws the pause screen. No screen content is read.",
             granted = guardianOn,
             actionLabel = "Enable"
-        ) {
-            context.startActivity(Permissions.accessibilityIntent())
-        }
+        ) { context.startActivity(com.tide.app.util.Permissions.accessibilityIntent()) }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             Spacer(Modifier.height(14.dp))
             PermissionCard(
@@ -308,111 +267,86 @@ private fun PermissionsPage() {
                 body = "A gentle nudge when focus sessions finish.",
                 granted = notifsOn,
                 actionLabel = "Allow"
-            ) {
-                notifLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
+            ) { notifLauncher.launch(Manifest.permission.POST_NOTIFICATIONS) }
         }
         Spacer(Modifier.weight(0.25f))
     }
 }
 
 @Composable
-private fun PermissionCard(
-    icon: ImageVector,
-    title: String,
-    body: String,
-    granted: Boolean,
-    actionLabel: String,
-    onClick: () -> Unit
-) {
-    GlassCard(modifier = Modifier.fillMaxWidth(), corner = 22.dp) {
-        Row(
-            Modifier.padding(18.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+private fun PermissionCard(icon: ImageVector, title: String, body: String, granted: Boolean, actionLabel: String, onClick: () -> Unit) {
+    val c = MaterialTheme.tide
+    TideCard(modifier = Modifier.fillMaxWidth(), corner = 20.dp) {
+        Row(Modifier.padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(
-                Modifier
-                    .size(46.dp)
-                    .clip(RoundedCornerShape(15.dp))
-                    .background(
-                        if (granted) Mint.copy(alpha = 0.14f) else Violet.copy(alpha = 0.14f)
-                    ),
+                Modifier.size(46.dp).clip(RoundedCornerShape(14.dp))
+                    .background(if (granted) c.sea.copy(alpha = 0.14f) else c.clay.copy(alpha = 0.12f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    if (granted) Icons.Rounded.Check else icon,
-                    contentDescription = null,
-                    tint = if (granted) Mint else Violet
-                )
+                Icon(if (granted) Icons.Rounded.Check else icon, null, tint = if (granted) c.seaText else c.clayText)
             }
             Spacer(Modifier.width(14.dp))
             Column(Modifier.weight(1f)) {
-                Text(title, style = MaterialTheme.typography.titleMedium, color = Color(0xFFE9ECF5))
-                Text(
-                    body,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = Color(0xFF9AA3B8),
-                    modifier = Modifier.padding(top = 3.dp)
-                )
+                Text(title, style = MaterialTheme.typography.titleMedium, color = c.ink)
+                Text(body, style = MaterialTheme.typography.bodySmall, color = c.inkMuted, modifier = Modifier.padding(top = 3.dp))
             }
             if (!granted) {
                 Spacer(Modifier.width(10.dp))
                 Box(
-                    Modifier
-                        .clip(RoundedCornerShape(14.dp))
-                        .background(Violet)
-                        .clickable(onClick = onClick)
-                        .padding(horizontal = 16.dp, vertical = 10.dp)
+                    Modifier.clip(RoundedCornerShape(12.dp)).background(c.clay).clickable(onClick = onClick).padding(horizontal = 16.dp, vertical = 10.dp)
                 ) {
-                    Text(
-                        actionLabel,
-                        style = MaterialTheme.typography.labelMedium,
-                        color = Ink
-                    )
+                    Text(actionLabel, style = MaterialTheme.typography.labelMedium, color = c.onClay)
                 }
             }
         }
     }
 }
 
+/** A breathing tide: a clay rim with a soft sea fill rising and falling inside. */
 @Composable
-private fun HaloMark(size: androidx.compose.ui.unit.Dp) {
-    val transition = rememberInfiniteTransition(label = "halo")
-    val pulse by transition.animateFloat(
-        initialValue = 0.94f, targetValue = 1.05f,
-        animationSpec = infiniteRepeatable(tween(3200), RepeatMode.Reverse),
-        label = "pulse"
+private fun TideMark(size: androidx.compose.ui.unit.Dp) {
+    val c = MaterialTheme.tide
+    val transition = rememberInfiniteTransition(label = "mark")
+    val level by transition.animateFloat(
+        initialValue = 0.4f, targetValue = 0.66f,
+        animationSpec = infiniteRepeatable(tween(4200), RepeatMode.Reverse), label = "level"
+    )
+    val phase by transition.animateFloat(
+        initialValue = 0f, targetValue = (2 * PI).toFloat(),
+        animationSpec = infiniteRepeatable(tween(5000), RepeatMode.Restart), label = "phase"
     )
     Canvas(Modifier.size(size)) {
-        val r = this.size.minDimension / 2
-        drawCircle(
-            brush = Brush.radialGradient(listOf(Violet.copy(alpha = 0.35f), Color.Transparent)),
-            radius = r * 1.15f * pulse
-        )
-        drawCircle(
-            brush = Brush.linearGradient(listOf(Violet, Mint)),
-            radius = r * 0.58f * pulse,
-            style = androidx.compose.ui.graphics.drawscope.Stroke(width = 12.dp.toPx())
-        )
-        drawCircle(
-            color = Color(0xFFEFFCF9),
-            radius = 6.dp.toPx(),
-            center = center + Offset(r * 0.58f * pulse * 0.7071f, -r * 0.58f * pulse * 0.7071f)
-        )
-    }
-}
-
-@Composable
-private fun OnboardingGlow(page: Int) {
-    Canvas(Modifier.fillMaxSize()) {
-        drawCircle(
-            brush = Brush.radialGradient(
-                listOf(Violet.copy(alpha = 0.15f), Color.Transparent),
-                center = Offset(size.width * (0.2f + page * 0.3f), size.height * 0.1f),
-                radius = size.width
-            ),
-            center = Offset(size.width * (0.2f + page * 0.3f), size.height * 0.1f),
-            radius = size.width
-        )
+        val r = this.size.minDimension / 2f - 2.dp.toPx()
+        val cx = this.size.width / 2f
+        val cy = this.size.height / 2f
+        val circle = Path().apply { addOval(Rect(cx - r, cy - r, cx + r, cy + r)) }
+        val baseLine = (cy + r) - (2 * r) * level
+        clipPath(circle) {
+            val wave = Path().apply {
+                moveTo(cx - r, baseLine)
+                var x = cx - r
+                val step = (2 * r) / 30f
+                while (x <= cx + r) {
+                    val t = (x - (cx - r)) / (2 * r)
+                    lineTo(x, baseLine + r * 0.05f * sin(phase + t * 2f * PI.toFloat() * 1.6f))
+                    x += step
+                }
+                lineTo(cx + r, cy + r); lineTo(cx - r, cy + r); close()
+            }
+            drawPath(wave, color = c.sea.copy(alpha = 0.28f))
+            // crest line
+            val crest = Path().apply {
+                moveTo(cx - r, baseLine)
+                var x = cx - r
+                val step = (2 * r) / 30f
+                while (x <= cx + r) {
+                    val t = (x - (cx - r)) / (2 * r)
+                    lineTo(x, baseLine + r * 0.05f * sin(phase + t * 2f * PI.toFloat() * 1.6f))
+                    x += step
+                }
+            }
+            drawPath(crest, color = c.sea, style = Stroke(width = 2.dp.toPx(), cap = StrokeCap.Round))
+        }
+        drawCircle(color = c.clay, radius = r, style = Stroke(width = 4.dp.toPx()))
     }
 }
